@@ -9,28 +9,28 @@ checks, and models the result into a star schema for Power BI reporting.
 **Executive overview** — gross/net sales, refunds, orders, average order value, monthly
 trend, sales by country, and concentration/seasonality/growth indicators.
 
-![Executive overview](docs/01-visao-executiva.png)
+![Executive overview](docs/pagina1-2h.png)
 
 **Trends & markets** — monthly net sales with month-over-month variation, country
 performance breakdown, and UK vs. rest-of-world share over time.
 
-![Trends and markets](docs/02-evolucao-mercados.png)
+![Trends and markets](docs/pagina2-1h30.png)
 
 **Products** — top-selling products by net sales, quantity vs. gross sales relationship,
 and full product-level breakdown with refund weight.
 
-![Products](docs/03-produtos.png)
+![Products](docs/pagina3-1h.png)
 
 **Customers** — identified vs. unidentified customers, repeat-customer rate, top
 customers by gross sales, and order-frequency distribution.
 
-![Customers](docs/04-clientes.png)
+![Customers](docs/pagina4-1h.png)
 
 **Data quality & methodology** — full source-to-model reconciliation, exchange rate
 coverage by month, data sources with retrieval dates, and a documented log of every
 data issue found and the decision taken for it.
 
-![Data quality and methodology](docs/05-qualidade-metodologia.png)
+![Data quality and methodology](docs/pagina5-1h.png)
 
 ## What it does
 
