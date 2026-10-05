@@ -1,0 +1,273 @@
+// BIE0926_GabrielMendes
+"C:\Users\gmend\Desktop\BIE0926_GabrielMendes" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+
+// fVendas
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\tratados\fVendas.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"LinhaOrigem", Int64.Type},
+        {"InvoiceNo", type text},
+        {"DataHora", type datetime},
+        {"Data", type date},
+        {"AnoMes", type text},
+        {"StockCode", type text},
+        {"ClienteKey", type text},
+        {"PaisKey", type text},
+        {"Quantidade", Int64.Type},
+        {"PrecoUnitarioGBP", type number},
+        {"ValorGBP", type number},
+        {"TaxaGBPporEUR", type number},
+        {"ValorEUR", type number},
+        {"TipoMovimento", type text},
+        {"PrefixoC", type logical}
+    }, "en-US")
+in
+    Tipos
+
+// dProduto
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\tratados\dProduto.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"StockCode", type text},
+        {"Descricao", type text},
+        {"Categoria", type text},
+        {"ProdutoLabel", type text}
+    }, "en-US")
+in
+    Tipos
+
+// dPais
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\tratados\dPais.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"PaisKey", type text},
+        {"PaisPT", type text},
+        {"Mercado", type text}
+    }, "en-US")
+in
+    Tipos
+
+// dMoeda
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\tratados\dMoeda.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"Moeda", type text},
+        {"Simbolo", type text},
+        {"Ordem", Int64.Type}
+    }, "en-US")
+in
+    Tipos
+
+// dCambio
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\tratados\dCambio.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"AnoMes", type text},
+        {"TaxaGBPporEUR", type number},
+        {"Serie", type text},
+        {"Explicacao", type text}
+    }, "en-US")
+in
+    Tipos
+
+// dCliente
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\tratados\dCliente.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"ClienteKey", type text},
+        {"Identificado", type logical},
+        {"ClienteNome", type text}
+    }, "en-US"),
+    #"Linhas Filtradas" = Table.SelectRows(Tipos, each true)
+in
+    #"Linhas Filtradas"
+
+// dCalendario
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\tratados\dCalendario.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"Data", type date},
+        {"Ano", Int64.Type},
+        {"NumMes", Int64.Type},
+        {"AnoMes", type text},
+        {"AnoMesNum", Int64.Type},
+        {"NomeMes", type text},
+        {"MesAno", type text},
+        {"MesCompleto", type logical},
+        {"RotuloMes", type text},
+        {"NumDiaSemana", Int64.Type},
+        {"DiaSemana", type text},
+        {"TemVendas", type logical}
+    }, "en-US")
+in
+    Tipos
+
+// dFaixaEncomendas
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\tratados\dFaixaEncomendas.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"Faixa", type text},
+        {"Min", Int64.Type},
+        {"Max", Int64.Type},
+        {"Ordem", Int64.Type}
+    }, "en-US")
+in
+    Tipos
+
+// qa_reconciliacao
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\qualidade\qa_reconciliacao.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"Ordem", Int64.Type},
+        {"Etapa", type text},
+        {"Linhas", Int64.Type},
+        {"ValorGBP", type number}
+    }, "en-US")
+in
+    Tipos
+
+// qa_problemas_decisoes
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\qualidade\qa_problemas_decisoes.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"Problema", type text},
+        {"Linhas", Int64.Type},
+        {"ValorGBP", type number},
+        {"Decisao", type text},
+        {"Justificacao", type text}
+    }, "en-US")
+in
+    Tipos
+
+// qa_cobertura_cambio
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\qualidade\qa_cobertura_cambio.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"AnoMes", type text},
+        {"TaxaGBPporEUR", type number},
+        {"Estado", type text},
+        {"Linhas", Int64.Type},
+        {"ValorGBP", type number},
+        {"ValorEUR", type number},
+        {"Nota", type text}
+    }, "en-US")
+in
+    Tipos
+
+// qa_controlos
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\qualidade\qa_controlos.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"Controlo", type text},
+        {"Descricao", type text},
+        {"Esperado", type text},
+        {"Obtido", type text},
+        {"Resultado", type text},
+        {"Critico", type text},
+        {"Detalhe", type text}
+    }, "en-US")
+in
+    Tipos
+
+// qa_fontes
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\qualidade\qa_fontes.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"Fonte", type text},
+        {"Autor", type text},
+        {"Licenca", type text},
+        {"Pagina", type text},
+        {"Download", type text},
+        {"Periodo", type text},
+        {"DataObtencao", type text},
+        {"Metodo", type text}
+    }, "en-US")
+in
+    Tipos
+
+// etl_ultima_execucao
+let
+    Source = Csv.Document(
+        File.Contents(BIE0926_GabrielMendes & "\dados\qualidade\etl_ultima_execucao.csv"),
+        [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]
+    ),
+    Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    Tipos = Table.TransformColumnTypes(Cabecalhos, {
+        {"Inicio", type text},
+        {"Fim", type text},
+        {"LinhasOrigem", Int64.Type},
+        {"LinhasFVendas", Int64.Type},
+        {"ControlosOK", Int64.Type},
+        {"ControlosAviso", Int64.Type},
+        {"ControlosFalha", Int64.Type},
+        {"VersaoPython", type text},
+        {"VersaoPandas", type text}
+    }, "en-US")
+in
+    Tipos
+
+// _Medidas
+let
+    Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Coluna1 = _t]),
+    #"Colunas Removidas" = Table.RemoveColumns(Origem,{"Coluna1"})
+in
+    #"Colunas Removidas"
+
+// _MedidasQa
+let
+    Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Coluna1 = _t]),
+    #"Colunas Removidas" = Table.RemoveColumns(Origem,{"Coluna1"})
+in
+    #"Colunas Removidas"

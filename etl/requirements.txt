@@ -1,0 +1,4 @@
+# Python 3.11 ou mais recente
+# Instalar com:  pip install -r etl/requirements.txt
+pandas==3.0.2      # tabelas de dados (DataFrames)
+openpyxl==3.1.5    # necessário para o pandas conseguir ler ficheiros Excel (.xlsx)
