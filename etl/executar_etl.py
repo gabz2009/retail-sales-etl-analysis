@@ -126,7 +126,7 @@ def main():
 
     # ---------------- PASSO 7: GRAVAR ----------------
     modelo = {
-        "fVendas.csv": fvendas, "dProduto.csv": dproduto, "dCliente.csv": dcliente,
+        "fVendas.csv": fvendas.drop(columns=cfg.COLUNAS_SO_ETL), "dProduto.csv": dproduto, "dCliente.csv": dcliente,
         "dPais.csv": dpais, "dCalendario.csv": dcalendario, "dCambio.csv": dcambio,
         "dMoeda.csv": dmoeda, "dFaixaEncomendas.csv": dfaixas,
     }
