@@ -285,7 +285,7 @@ Esquema em estrela:
 - **Auxiliares desligadas:** `dMoeda` (seletor de moeda) e `dFaixaEncomendas` (escalões de clientes)
 - **Qualidade:** tabelas `qa_*` com as linhas excluídas, os controlos e a reconciliação
 
-![Modelo de dados](docs/starSchemaFinal.png)
+![Modelo de dados](docs/v2/starSchemaFinal.png)
 
 ---
 
