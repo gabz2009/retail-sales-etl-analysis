@@ -60,7 +60,6 @@ Este repositório tem **duas versões do relatório**. A primeira foi construíd
 | ![Produtos v1](docs/v1/pagina3-1h.png) | ![Produtos v2](docs/v2/produto.png) |
 | ![Clientes v1](docs/v1/pagina4-1h.png) | ![Clientes v2](docs/v2/cliente.png) |
 | ![Qualidade v1](docs/v1/pagina5-1h.png) | ![Qualidade v2](docs/v2/qualidadeMetodo.png) |
-| ![Ficha de produto v1](docs/v1/drillthrough-30min.png) | ![Ficha de produto v2](docs/v2/fichaProduto.png) |
 
 ### Resumo das diferenças
 
