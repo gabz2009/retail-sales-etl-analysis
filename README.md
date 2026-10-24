@@ -86,8 +86,8 @@ Este repositório tem **duas versões do relatório**. A primeira foi construíd
 
 - **Paleta própria e coerente.** Verde-petróleo para a estrutura e os dados, laranja só para destacar o que merece atenção, vermelho para valores negativos e amarelo para o mês incompleto. Uma cor tem sempre o mesmo significado em todas as páginas.
 - **Fundo claro e cartões brancos.** Cada bloco de análise tem um título que diz o que mostra e uma nota curta a explicar como ler o gráfico.
-- **Hierarquia clara.** Indicadores principais no topo, análise no meio e detalhe em baixo ou à direita.
-- **Menos ruído.** Saiu a imagem de fundo, a escala logarítmica e os eixos desnecessários. Os valores aparecem diretamente nas barras.
+- **Hierarquia clara.** Indicadores principais no topo e análise no meio.
+- **Menos ruído.** Saiu a imagem de fundo e os eixos desnecessários. Os valores aparecem diretamente nas barras.
 - **Fundos e bordas no próprio visual.** Em vez de formas desenhadas por trás de cada gráfico, cada visual usa o seu próprio fundo, borda arredondada e sombra. O aspeto é o mesmo e o relatório fica mais leve (ver [Otimização de desempenho](#otimização-de-desempenho)).
 
 ### Navegação
@@ -324,11 +324,9 @@ Esquema em estrela:
 │   ├── origem/                # ficheiros descarregados (não incluídos)
 │   ├── modelo/                # CSV que alimentam o Power BI
 │   └── qualidade/             # evidência das exclusões e dos controlos
-├── powerbi/
-│   ├── v1/                    # primeira versão do relatório
-│   └── v2/                    # versão atual
+├── relatorio/                 # relatórios do Power BI
 ├── desempenho/                # exportações do Analisador de Desempenho (antes e depois)
-├── docs/                      # diagrama do modelo e capturas do relatório
+├── docs/                      
 │   ├── v1/                    # capturas da primeira versão
 │   └── v2/                    # capturas da versão atual
 └── README.md
