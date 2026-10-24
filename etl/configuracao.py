@@ -138,6 +138,18 @@ AMOSTRA_PRODUTO = "85123A"
 # Texto usado para os clientes sem CustomerID
 CLIENTE_DESCONHECIDO = "DESCONHECIDO"
 
+MESES_PT = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
+            "agosto", "setembro", "outubro", "novembro", "dezembro"]
+
+MESES_ABREV = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
+
+DIAS_SEMANA = ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira",
+               "sexta-feira", "sábado", "domingo"]
+
+COLUNAS_ORIGEM = ["InvoiceNo", "StockCode", "Description", "Quantity",
+                  "InvoiceDate", "UnitPrice", "CustomerID", "Country"]
+
+COLUNAS_SO_ETL = ["LinhaOrigem"]
 
 # ---------------------------------------------------------------------
 # 7. FUNÇÃO DE APOIO
