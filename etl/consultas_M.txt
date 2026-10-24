@@ -9,7 +9,6 @@ let
     ),
     Cabecalhos = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
     Tipos = Table.TransformColumnTypes(Cabecalhos, {
-        {"LinhaOrigem", Int64.Type},
         {"InvoiceNo", type text},
         {"DataHora", type datetime},
         {"Data", type date},
