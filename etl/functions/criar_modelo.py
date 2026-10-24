@@ -34,12 +34,6 @@ import pandas as pd
 
 import configuracao as cfg
 
-MESES_PT = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
-            "agosto", "setembro", "outubro", "novembro", "dezembro"]
-MESES_ABREV = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
-DIAS_SEMANA = ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira",
-               "sexta-feira", "sábado", "domingo"]
-
 
 def criar_fvendas(elegiveis):
     # Escolhemos só as colunas necessárias e damos-lhes nomes claros
